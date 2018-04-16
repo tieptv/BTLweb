@@ -39,7 +39,7 @@
                                 <td>{{$sl->content}}</td>
                                 <td>{{$sl->link}}</td>
                                 <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/slide/delete/{{$sl->id}}"> Delete</a></td>
-                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href=""admin/slide/edit/{{$sl->id}}">Edit</a></td>
+                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/slide/edit/{{$sl->id}}">Edit</a></td>
                             </tr>
                             @endforeach
                         </tbody>
