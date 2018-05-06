@@ -10,9 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('test', function () {
-    return view('master');
-});
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -23,6 +21,17 @@ Route::post('login','LoginController@postLogin');
 Route::get('',function(){
 	return view('home');
 });
+
+Route::get('homePage',['as'=>'homePage','uses'=>'PageController@getHome']);
+Route::get('product/{id}',['as'=>'product','uses'=>'PageController@getProduct']);
+Route::get('shop',['as'=>'shop','uses'=>'PageController@getShop']);
+Route::get('about',['as'=>'about','uses'=>'PageController@getAbout']);
+Route::get('contact',['as'=>'contact','uses'=>'PageController@getContact']);
+Route::get('cart',['as'=>'cart','uses'=>'PageController@getCart']);
+Route::get('checkout',['as'=>'checkout','uses'=>'PageController@getCheckout']);
+
+
+
 
 Route::group(['prefix'=>'admin'],function(){
 	Route::group(['prefix'=>'category'],function(){

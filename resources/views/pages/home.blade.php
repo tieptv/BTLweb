@@ -1,12 +1,43 @@
 @extends('master')
 
 @section('content')
+        <aside id="colorlib-hero">
+            <div class="flexslider">
+                <ul class="slides">
+                @foreach($slide as $sl)
+                <li style="background-image: url(source/images/{{$sl->image}});">
+                    <div class="overlay"></div>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3 col-md-pull-2 col-sm-12 col-xs-12 slider-text">
+                                <div class="slider-text-inner">
+                                    <div class="desc">
+                                        <h1 class="head-1">{{$sl->name}}</h1>
+                                        <h2 class="head-2">{{$sl->content}}</h2>
+                                        <h2 class="head-3">Collection</h2>
+                                        <p class="category"><span>New stylish shirts, pants &amp; Accessories</span></p>
+                                        <p><a href="#" class="btn btn-primary">Shop Collection</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+               @endforeach
+                </ul>
+            </div>
+        </aside>
+
+        <?php
+        $product1= $new_product->shift();
+
+        ?>
 
         <div id="colorlib-featured-product">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <a href="shop.html" class="f-product-1" style="background-image: url(source/images/item-1.jpg);">
+                        <a href="shop.html" class="f-product-1" style="background-image: url(source/images/{{$product1->image_link}});">
                             <div class="desc">
                                 <h2>Fahion <br>for <br>men</h2>
                             </div>
@@ -14,27 +45,16 @@
                     </div>
                     <div class="col-md-6">
                         <div class="row">
+                            @foreach($new_product as $pro)
                             <div class="col-md-6">
-                                <a href="" class="f-product-2" style="background-image: url(source/images/item-2.jpg);">
+                                <a href="" class="f-product-2" style="background-image: url(source/images/{{$pro->image_link}});">
                                     <div class="desc">
                                         <h2>New <br>Arrival <br>Dress</h2>
                                     </div>
                                 </a>
                             </div>
-                            <div class="col-md-6">
-                                <a href="" class="f-product-2" style="background-image: url(source/images/item-4.jpg);">
-                                    <div class="desc">
-                                        <h2>Sale <br>20% <br>off</h2>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-md-12">
-                                <a href="" class="f-product-2" style="background-image: url(source/images/item-3.jpg);">
-                                    <div class="desc">
-                                        <h2>Shoes <br>for <br>men</h2>
-                                    </div>
-                                </a>
-                            </div>
+                            @endforeach
+                      
                         </div>
                     </div>
                 </div>
@@ -44,14 +64,15 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3 text-center colorlib-heading">
-                        <h2><span>New Arrival</span></h2>
+                        <h2><span>Most views</span></h2>
                         <p>We love to tell our successful far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                     </div>
                 </div>
                 <div class="row">
+                    @foreach($most_views_product as $v)
                     <div class="col-md-3 text-center">
                         <div class="product-entry">
-                            <div class="product-img" style="background-image: url(source/images/item-5.jpg);">
+                            <div class="product-img" style="background-image: url(source/images/{{$v->image_link}});">
                                 <p class="tag"><span class="new">New</span></p>
                                 <div class="cart">
                                     <p>
@@ -63,68 +84,13 @@
                                 </div>
                             </div>
                             <div class="desc">
-                                <h3><a href="shop.html">Floral Dress</a></h3>
-                                <p class="price"><span>$300.00</span></p>
+                                <h3><a href="product/{{$v->id}}">Floral Dress</a></h3>
+                                <p class="price"><span>${{$v->price}}</span></p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 text-center">
-                        <div class="product-entry">
-                            <div class="product-img" style="background-image: url(source/images/item-6.jpg);">
-                                <p class="tag"><span class="new">New</span></p>
-                                <div class="cart">
-                                    <p>
-                                        <span class="addtocart"><a href="cart.html"><i class="icon-shopping-cart"></i></a></span> 
-                                        <span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
-                                        <span><a href="#"><i class="icon-heart3"></i></a></span>
-                                        <span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="desc">
-                                <h3><a href="shop.html">Floral Dress</a></h3>
-                                <p class="price"><span>$300.00</span></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <div class="product-entry">
-                            <div class="product-img" style="background-image: url(source/images/item-7.jpg);">
-                                <p class="tag"><span class="new">New</span></p>
-                                <div class="cart">
-                                    <p>
-                                        <span class="addtocart"><a href="cart.html"><i class="icon-shopping-cart"></i></a></span> 
-                                        <span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
-                                        <span><a href="#"><i class="icon-heart3"></i></a></span>
-                                        <span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="desc">
-                                <h3><a href="shop.html">Floral Dress</a></h3>
-                                <p class="price"><span>$300.00</span></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <div class="product-entry">
-                            <div class="product-img" style="background-image: url(source/images/item-8.jpg);">
-                                <p class="tag"><span class="new">New</span></p>
-                                <div class="cart">
-                                    <p>
-                                        <span class="addtocart"><a href="cart.html"><i class="icon-shopping-cart"></i></a></span> 
-                                        <span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
-                                        <span><a href="#"><i class="icon-heart3"></i></a></span>
-                                        <span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="desc">
-                                <h3><a href="shop.html">Floral Dress</a></h3>
-                                <p class="price"><span>$300.00</span></p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+                   
                 </div>
             </div>
         </div>
@@ -414,137 +380,6 @@
             </div>
         </div>
         
-        <div id="colorlib-subscribe">
-            <div class="overlay"></div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        <div class="col-md-6 text-center">
-                            <h2><i class="icon-paperplane"></i>Sign Up for a Newsletter</h2>
-                        </div>
-                        <div class="col-md-6">
-                            <form class="form-inline qbstp-header-subscribe">
-                                <div class="row">
-                                    <div class="col-md-12 col-md-offset-0">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" id="email" placeholder="Enter your email">
-                                            <button type="submit" class="btn btn-primary">Subscribe</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <footer id="colorlib-footer" role="contentinfo">
-            <div class="container">
-                <div class="row row-pb-md">
-                    <div class="col-md-3 colorlib-widget">
-                        <h4>About Store</h4>
-                        <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
-                        <p>
-                            <ul class="colorlib-social-icons">
-                                <li><a href="#"><i class="icon-twitter"></i></a></li>
-                                <li><a href="#"><i class="icon-facebook"></i></a></li>
-                                <li><a href="#"><i class="icon-linkedin"></i></a></li>
-                                <li><a href="#"><i class="icon-dribbble"></i></a></li>
-                            </ul>
-                        </p>
-                    </div>
-                    <div class="col-md-2 colorlib-widget">
-                        <h4>Customer Care</h4>
-                        <p>
-                            <ul class="colorlib-footer-links">
-                                <li><a href="#">Contact</a></li>
-                                <li><a href="#">Returns/Exchange</a></li>
-                                <li><a href="#">Gift Voucher</a></li>
-                                <li><a href="#">Wishlist</a></li>
-                                <li><a href="#">Special</a></li>
-                                <li><a href="#">Customer Services</a></li>
-                                <li><a href="#">Site maps</a></li>
-                            </ul>
-                        </p>
-                    </div>
-                    <div class="col-md-2 colorlib-widget">
-                        <h4>Information</h4>
-                        <p>
-                            <ul class="colorlib-footer-links">
-                                <li><a href="#">About us</a></li>
-                                <li><a href="#">Delivery Information</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Support</a></li>
-                                <li><a href="#">Order Tracking</a></li>
-                            </ul>
-                        </p>
-                    </div>
-
-                    <div class="col-md-2">
-                        <h4>News</h4>
-                        <ul class="colorlib-footer-links">
-                            <li><a href="blog.html">Blog</a></li>
-                            <li><a href="#">Press</a></li>
-                            <li><a href="#">Exhibitions</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-md-3">
-                        <h4>Contact Information</h4>
-                        <ul class="colorlib-footer-links">
-                            <li>291 South 21th Street, <br> Suite 721 New York NY 10016</li>
-                            <li><a href="tel://1234567920">+ 1235 2355 98</a></li>
-                            <li><a href="mailto:info@yoursite.com">info@yoursite.com</a></li>
-                            <li><a href="#">yoursite.com</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="copy">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <p>
-                            
-                            <span class="block"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart2" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span> 
-                            <span class="block">Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a> , <a href="http://pexels.com/" target="_blank">Pexels.com</a></span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </footer>
-    </div>
-
-    <div class="gototop js-top">
-        <a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
-    </div>
-    
-    <!-- jQuery -->
-    <script src="source/js/jquery.min.js"></script>
-    <!-- jQuery Easing -->
-    <script src="source/js/jquery.easing.1.3.js"></script>
-    <!-- Bootstrap -->
-    <script src="source/js/bootstrap.min.js"></script>
-    <!-- Waypoints -->
-    <script src="source/js/jquery.waypoints.min.js"></script>
-    <!-- Flexslider -->
-    <script src="source/js/jquery.flexslider-min.js"></script>
-    <!-- Owl carousel -->
-    <script src="source/js/owl.carousel.min.js"></script>
-    <!-- Magnific Popup -->
-    <script src="source/js/jquery.magnific-popup.min.js"></script>
-    <script src="source/js/magnific-popup-options.js"></script>
-    <!-- Date Picker -->
-    <script src="source/js/bootstrap-datepicker.js"></script>
-    <!-- Stellar Parallax -->
-    <script src="source/js/jquery.stellar.min.js"></script>
-    <!-- Main -->
-    <script src="source/js/main.js"></script>
-
-    </body>
-</html>
 
 
 @endsection
