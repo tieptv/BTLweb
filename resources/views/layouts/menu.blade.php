@@ -11,7 +11,6 @@
 						<li class="has-dropdown">
 							<a href="{{route('shop')}}">Shop</a>
 							<ul class="dropdown">
-								<li><a href="source/product-detail.html">Product Detail</a></li>
 								<li><a href="{{route('cart')}}">Shipping Cart</a></li>
 								<li><a href="{{route('checkout')}}">Checkout</a></li> 
 								<li><a href="source/order-complete.html">Order Complete</a></li>
@@ -29,7 +28,7 @@
 						<li><a href="source/blog.html">Blog</a></li>
 						<li><a href="{{route('about')}}">About</a></li>
 						<li><a href="{{route('contact')}}">Contact</a></li>
-						<li><a href="{{route('cart')}}"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
+						<li><a href="{{route('cart')}}"><i class="icon-shopping-cart"></i> Cart [${{Cart::Subtotal()}}]</a></li>
 					</ul>
 				</div>
 			</div>

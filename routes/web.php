@@ -28,7 +28,14 @@ Route::get('product_type/{id}',['as'=>'product_type','uses'=>'PageController@get
 Route::get('shop',['as'=>'shop','uses'=>'PageController@getShop']);
 Route::get('about',['as'=>'about','uses'=>'PageController@getAbout']);
 Route::get('contact',['as'=>'contact','uses'=>'PageController@getContact']);
+
 Route::get('cart',['as'=>'cart','uses'=>'PageController@getCart']);
+Route::get('addCart/{id}',['as'=>'addCart','uses'=>'PageController@addCart']);
+Route::get('removeCart/{id}',['as'=>'removeCart','uses'=>'PageController@removeCart']);
+Route::get('destroyCart',['as'=>'destroyCart','uses'=>'PageController@destroyCart']);
+Route::get('minusQtyCart/{id}',['as'=>'minusQtyCart','uses'=>'PageController@minusQtyCart']);
+Route::get('addQtyCart/{id}',['as'=>'addQtyCart','uses'=>'PageController@addQtyCart']);
+
 Route::get('checkout',['as'=>'checkout','uses'=>'PageController@getCheckout']);
 
 

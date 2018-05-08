@@ -13,6 +13,7 @@ use App\Comment;
 use App\Contact;
 use App\Slide;
 use App\ProductDetail;
+use Cart;
 
 
 class PageController extends Controller
@@ -41,6 +42,38 @@ class PageController extends Controller
         return view('pages.product_type',compact('slide','product'));
     }
 
+    public function getCart(){
+    	$cart = Cart::content();
+		return view('pages.cart',compact('cart'));
+	}
+	public function addCart($id)
+    {
+        $product = Product::find($id);
+        Cart::add(['id'=>$id, 'name'=>$product->name,'qty'=>1, 'price'=>$product->price,'options'=>['image'=>$product->image_link,'catalog'=>$product->category->name,'manafacture'=>$product->manafacture->name]]);
+        $content = Cart::content();
+        return redirect()->route('cart');
+    }
+	public function removeCart($id){
+        Cart::remove($id);
+        return redirect()->route('cart');
+    }
+    public function destroyCart(){
+        Cart::destroy();
+        return redirect()->back();
+    }
+    public function minusQtyCart($id){
+        $car = Cart::get($id);
+        $car->qty -= 1;
+        Cart::update($id,$car->qty);
+        return redirect()->back();
+    }
+    public function addQtyCart($id){
+        $car = Cart::get($id);
+        $car->qty += 1;
+        Cart::update($id,$car->qty);
+        return redirect()->back();
+    }
+
 	public function getShop(){
 		return view('pages.shop');
 	}
@@ -50,9 +83,7 @@ class PageController extends Controller
 	public function getContact(){
 		return view('pages.contact');
 	}
-	public function getCart(){
-		return view('pages.cart');
-	}
+	
     public function getCheckout(){
 		return view('pages.checkout');
 	}
