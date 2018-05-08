@@ -5,8 +5,20 @@
 				<div class="col-xs-2">
 					<div id="colorlib-logo"><a href="{{route('homePage')}}">Beauty Shop</a></div>
 				</div>
-				<div class="col-xs-10 text-right menu-1">
+				<div class="col-xs-4">
+						
+						<div class="search">
+	        				<form action="{{route('search')}}" method="GET" enctype="multipart/form-data">
+	        		        	<input type="text" name="key" class="textbox" placeholder="Tìm kiếm">
+				                <input type="submit"" id="submit">
+
+	       		 			</form>	  
+		    			</div>
+					
+				</div>
+				<div class="col-xs-14 text-right menu-1">
 					<ul>
+					
 						<li class="active"><a href="home">Home</a></li>
 						<li class="has-dropdown">
 							<a href="{{route('shop')}}">Shop</a>

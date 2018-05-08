@@ -38,6 +38,7 @@ Route::get('addQtyCart/{id}',['as'=>'addQtyCart','uses'=>'PageController@addQtyC
 
 Route::get('checkout',['as'=>'checkout','uses'=>'PageController@getCheckout']);
 
+Route::get('search',['as'=>'search','uses'=>'PageController@search']);
 
 
 

@@ -87,4 +87,10 @@ class PageController extends Controller
     public function getCheckout(){
 		return view('pages.checkout');
 	}
+
+    public function search(Request $request)
+    {
+        $product = Product::where('name','like','%'.$request->key.'%')->get();
+        return view('pages.search',compact('product'));
+    }
 }
