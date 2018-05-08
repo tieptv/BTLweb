@@ -8,18 +8,14 @@
 							<div class="row">
 								<div class="col-md-5">
 									<div class="product-entry">
-									<!--	<div class="product-img" style="background-image: url(source/images/{{$product->image_link}});">
+									    <div class="product-img" style="background-image: url(source/images/{{$product->image_link}});">
 											<p class="tag"><span class="sale">Sale</span></p>
-										</div> -->
-										<div class="product-img">
-											<a href="">
-												<img class="etalage_thumb_image" src="source/images/{{$product->image_link}}" class="img-responsive" />
-											</a>
-										</div>
+										</div> 
+
 										<div class="thumb-nail">
-											<a href="#" class="thumb-img" style="background-image: url(source/images/item-11.jpg);"></a>
-											<a href="#" class="thumb-img" style="background-image: url(source/images/item-12.jpg);"></a>
-											<a href="#" class="thumb-img" style="background-image: url(source/images/item-16.jpg);"></a>
+											@foreach($rel_product as $pro)
+											<a href="product/{{$pro->id}}" class="thumb-img" style="background-image: url(source/images/{{$pro->image_link}});"></a>
+											@endforeach
 										</div>
 									</div>
 								</div>
@@ -27,7 +23,7 @@
 									<div class="desc">
 										<h3>Dummy Product Name</h3>
 										<p class="price">
-											<span>$68.00</span> 
+											<span>${{$product->price}}</span> 
 											<span class="rate text-right">
 												<i class="icon-star-full"></i>
 												<i class="icon-star-full"></i>
@@ -37,7 +33,7 @@
 												(74 Rating)
 											</span>
 										</p>
-										<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
+										<p>{{$product->description}}</p>
 										<div class="color-wrap">
 											<p class="color-desc">
 												Color: 
@@ -66,7 +62,8 @@
                                        	<button type="button" class="quantity-left-minus btn"  data-type="minus" data-field="">
                                           <i class="icon-minus2"></i>
                                        	</button>
-                                   		</span>
+                                   		</span> 
+
                                     	<input type="text" id="quantity" name="quantity" class="form-control input-number" value="1" min="1" max="100">
                                     	<span class="input-group-btn">
                                        	<button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
@@ -76,7 +73,7 @@
                                  	</div>
                         			</div>
 										</div>
-										<p><a href="cart.html" class="btn btn-primary btn-addtocart"><i class="icon-shopping-cart"></i> Add to Cart</a></p>
+										<p><a href="{{route('cart')}}" class="btn btn-primary btn-addtocart"><i class="icon-shopping-cart"></i> Add to Cart</a></p>
 									</div>
 								</div>
 							</div>
@@ -95,17 +92,10 @@
 								<div class="tab-content">
 									<div id="description" class="tab-pane fade in active">
 										<p>{{$product->description}}</p>
-										<ul>
-											<li>The Big Oxmox advised her not to do so</li>
-											<li>Because there were thousands of bad Commas</li>
-											<li>Wild Question Marks and devious Semikoli</li>
-											<li>She packed her seven versalia</li>
-											<li>tial into the belt and made herself on the way.</li>
-										</ul>
+										
 						         </div>
 						         <div id="manufacturer" class="tab-pane fade">
-						         	<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-										<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
+						         	<p>{{$product->manafacture->name}}</p>
 								      
 								   </div>
 								   <div id="review" class="tab-pane fade">

@@ -33,6 +33,14 @@ class PageController extends Controller
         $rel_product = Product::where('catalog_id',$product->catalog_id)->paginate(4);
 		return view('pages.product_detail',compact('product','rel_product','comments'));
 	}
+
+	public function getProductType($id)
+    {
+    	$slide = Slide::all();
+        $product = Product::where('catalog_id',$id)->get();
+        return view('pages.product_type',compact('slide','product'));
+    }
+
 	public function getShop(){
 		return view('pages.shop');
 	}

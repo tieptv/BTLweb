@@ -3,7 +3,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-2">
-					<div id="colorlib-logo"><a href="{{route('homePage')}}">Store</a></div>
+					<div id="colorlib-logo"><a href="{{route('homePage')}}">Beauty Shop</a></div>
 				</div>
 				<div class="col-xs-10 text-right menu-1">
 					<ul>
@@ -22,7 +22,7 @@
 							<a href="{{route('shop')}}">Menu</a>
 							<ul class="dropdown">
 								@foreach($category as $cate)
-								<li><a href=" ">{{$cate->name}}</a></li>
+								<li><a href="{{route('product_type',$cate->id)}}">{{$cate->name}}</a></li>
 								@endforeach
 							</ul>
 						</li>

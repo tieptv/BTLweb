@@ -24,6 +24,7 @@ Route::get('',function(){
 
 Route::get('homePage',['as'=>'homePage','uses'=>'PageController@getHome']);
 Route::get('product/{id}',['as'=>'product','uses'=>'PageController@getProduct']);
+Route::get('product_type/{id}',['as'=>'product_type','uses'=>'PageController@getProductType']);
 Route::get('shop',['as'=>'shop','uses'=>'PageController@getShop']);
 Route::get('about',['as'=>'about','uses'=>'PageController@getAbout']);
 Route::get('contact',['as'=>'contact','uses'=>'PageController@getContact']);
